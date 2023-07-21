@@ -22,7 +22,6 @@ const validateBodyPost = (schema) => {
         throw HttpError(400, error.message);
       }
     }
-
     next();
   };
   return func;
