@@ -2,7 +2,6 @@ const { HttpError } = require("../helpers");
 
 const validateBodyPut = (schema) => {
   const func = (req, res, next) => {
-    // console.log(req.body);
     const { error } = schema.validate(req.body);
 
     if (!Object.keys(req.body).length) throw HttpError(400, `missing fields`);

@@ -8,7 +8,8 @@ const validateBodyPost = (schema) => {
       if (
         error.details[0].context.key === "name" ||
         error.details[0].context.key === "email" ||
-        error.details[0].context.key === "phone"
+        error.details[0].context.key === "phone" ||
+        error.details[0].context.key === "password"
       ) {
         if (error.details[0].type !== "string.base") {
           throw HttpError(
