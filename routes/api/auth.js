@@ -11,14 +11,26 @@ const {
 
 const { schemas } = require("../../models/user");
 
+const router = express.Router();
+
 /**
  * Signup
  */
-const router = express.Router();
 router.post(
   "/register",
   validateBodyPost(schemas.registerSchema),
   ctrl.register
+);
+
+/**
+ * Verify
+ */
+router.get("/verify/:verificationCode", ctrl.verify);
+
+router.post(
+  "/verify",
+  validateBodyPost(schemas.userEmailSchema),
+  ctrl.resendVerify
 );
 
 /**
